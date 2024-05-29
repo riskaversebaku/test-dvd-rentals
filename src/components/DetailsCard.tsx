@@ -2,17 +2,7 @@ import React, { useState } from 'react';
 import {Rental} from "../types/Rental";
 import {RentalStatus} from "../types/RentalStatus";
 import {Button} from "./Button";
-
-function calculateAge(dateOfBirth: Date) {
-    const dob = new Date(dateOfBirth);
-    const today = new Date();
-    let age = today.getFullYear() - dob.getFullYear();
-    const monthDiff = today.getMonth() - dob.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
-        age--;
-    }
-    return age;
-}
+import {calculateAge} from "../utils/dateHelpers";
 
 type Props = {
     rental: Rental;
